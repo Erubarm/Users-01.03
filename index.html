@@ -1,24 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./assets/styles/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/styles/index.css" />
     <title>usersList</title>
-</head>
-<body>
-    <button class="button__filter">A-Z</button>
-    <ul class="items-list">
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="load__anim"></div>
+    </div>
 
-    </ul>
-    
-
-
-
-
+    <div class="wrapper">
+      <div class="container">
+        <h1 class="main-title">Users</h1>
+        <div class="search-filter">
+          <div class="search">
+            <input type="text" class="search__input" placeholder="Search by name"/>
+            <button class="search__button">
+              <img src="./assets/icons/search.svg" alt="search" />
+            </button>
+          </div>
+          <button class="filtered">
+            <span class="filtered__title">Filter</span>
+            <img
+              src="./assets/icons/filter.svg"
+              alt="filter"
+              class="filtered__img"
+            />
+          </button>
+        </div>
+        <ul class="items-list"></ul>
+      </div>
+    </div>
 
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
