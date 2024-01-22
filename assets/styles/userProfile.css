@@ -1,0 +1,130 @@
+.container-profile {
+    margin-top: 128px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 128px;
+}
+
+.user__avatar__big {
+    width: 406px;
+    height: 444px;
+    border-radius: 20px;
+
+    background: var(--Lavender-300);
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.user__info {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.user__posts-list {
+    padding-left: 0px;
+}
+
+.user-profile__head {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.user-profile__head__name-and-location {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    
+
+    font-family: "Inter h3", sans-serif;
+}
+.user__location {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    color: var(--Lavender-400);
+}
+.user__location img {
+    width: 24px;
+    height: 24px;
+}
+
+.user-profile__head__company {
+    font-family: "Inter p-normal", sans-serif;
+    color: var(--Black);
+}
+
+.user__contact-info {
+    display: flex;
+    flex-direction: column;
+    width: 294px;
+}
+.user__contact-info__title {
+    padding-bottom: 24px;
+}
+strong {
+    color: var(--Black);
+}
+.user-profile__link {
+    color: var(--Blue);
+}
+.user__contact-info__title, .user__contact-info__item {
+    font-family: "Inter title", sans-serif;
+    color: var(--Lavender-400);
+}
+
+.user__contact-info__item {
+    border-top: 2px solid var(--Lavender-400);
+    padding: 16px 0px;
+}
+
+.user__posts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.user__posts h2 {
+    font-family: "Inter title", sans-serif;
+    color: var(--Lavender-400);
+}
+
+.user__posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.user__post-item-up {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.user__post-item-up__avatar {
+    width: 56px;
+    height: 56px;
+    background: var(--Lavender-300);
+    border-radius: 50px;
+}
+
+.user__posts-item {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    font-family: "Inter p-big", sans-serif;
+    color: var(--Black);
+}
+
+.user__post-item-up__name {
+    font-family: "Inter h3", sans-serif;
+    color: var(--Blue);
+}
+
