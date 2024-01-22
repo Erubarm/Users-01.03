@@ -39,7 +39,7 @@ const Actions = async () => {
             <li>
                 <div class="user__avatar"></div>
                 <div class="user__description">
-                  <h2 class="user__name"><a href="../userProfile.html?userId=${user.userId}">${user.name}</a></h2>
+                  <h2 class="user__name"><a href="./userProfile.html?userId=${user.userId}">${user.name}</a></h2>
                   <span class="user__company normal">${user.company}</span>  
                   <span class="user__email small">${user.email}</span>
                 </div>
