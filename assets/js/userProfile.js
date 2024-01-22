@@ -5,6 +5,15 @@ const userId = userUrl.split("=")[1];
 let userInfo;
 let userPosts;
 
+document.body.onload = () => {
+    setTimeout( () => {
+        const preloader = document.querySelector('.preloader');
+        if ( !preloader.classList.contains('hide')) {
+            preloader.classList.add('hide');
+        }
+    }, 1500);
+}
+
 const getUsers = async () => {
   const users = await fetch("https://jsonplaceholder.typicode.com/users");
   return users.json();
