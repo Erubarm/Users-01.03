@@ -56,7 +56,7 @@ const Actions = async () => {
         <div class="user-profile__head">
             <div class="user-profile__head__name-and-location">
                 <h1 class="user__name">${userInfo.name}</h1>
-                <span class="user__location"><img src="../assets/icons/map-location.svg" alt="place"> ${userInfo.city}</span>
+                <span class="user__location"><img src="./assets/icons/map-location.svg" alt="place"> ${userInfo.city}</span>
             </div>
             <span class="user-profile__head__company">${userInfo.company}</span>
         </div>
