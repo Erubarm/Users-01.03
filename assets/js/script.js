@@ -3,6 +3,19 @@ const buttonFilter = document.querySelector(".filtered");
 const username = document.getElementById("username");
 const userFind = document.getElementById("userFind");
 
+const sortAtoZ = document.getElementById("sortAtoZ");
+
+const sortList = document.getElementById("sort-list");
+
+buttonFilter.addEventListener("click", () => {
+  if (!filterImg.classList.contains("rotate")) {
+    filterImg.classList.add("rotate");
+  } else {
+    filterImg.classList.remove("rotate");
+  }
+  sortList.classList.toggle("sort-list-hide");
+});
+
 document.body.onload = () => {
   setTimeout(() => {
     const preloader = document.querySelector(".preloader");
@@ -13,7 +26,7 @@ document.body.onload = () => {
 };
 
 const filterImg = document.querySelector(".filtered__img");
-console.log(filterImg.classList);
+
 const getUsers = async () => {
   const users = await fetch("https://jsonplaceholder.typicode.com/users");
   return users.json();
@@ -37,9 +50,11 @@ const Actions = async () => {
   });
 
   const searchUser = (username) => {
-    const filters = filteredUsers.filter((user) => user.name.includes(username));
+    const filters = filteredUsers.filter((user) =>
+      user.name.includes(username)
+    );
     filters.forEach((user) => {
-    itemsList.innerHTML += `
+      itemsList.innerHTML += `
             <li>
                 <div class="user__avatar"></div>
                 <div class="user__description">
@@ -51,10 +66,28 @@ const Actions = async () => {
         `;
     });
   };
-
-  userFind.addEventListener("click", () => {
+  
+  // let usernameRight = username.value[0].toUpperCase() + username.value.slice(1);
+  userFind.addEventListener("keyup", (event) => {
+    if (event.key === 'Enter') {
     itemsList.innerHTML = ` `;
-    searchUser(username.value);
+    let usernameRight = username.value[0].toUpperCase() + username.value.slice(1);
+    
+    console.log(usernameRight)
+    searchUser(usernameRight);
+    };
+  });
+
+  username.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      if (!username.value == '') {
+      let usernameRight = username.value[0].toUpperCase() + username.value.slice(1);
+      itemsList.innerHTML = ` `;
+      searchUser(usernameRight);
+      } else {
+        searchUser(username.value)
+      }
+    }
   });
 
   const outputUsers = () => {
@@ -72,17 +105,16 @@ const Actions = async () => {
     });
   };
 
-  
   outputUsers();
 
-  buttonFilter.addEventListener("click", () => {
-    if (!filterImg.classList.contains("rotate")) {
-      filterImg.classList.add("rotate");
+  sortAtoZ.addEventListener("click", () => {
+    if (sortAtoZ.innerText === "Sort for A-Z") {
+      sortAtoZ.innerText = "Sort for Z-A";
       filteredUsers.sort((a, b) => a.name.localeCompare(b.name));
       itemsList.innerHTML = ``;
       outputUsers();
     } else {
-      filterImg.classList.remove("rotate");
+      sortAtoZ.innerText = "Sort for A-Z";
       filteredUsers.reverse();
       itemsList.innerHTML = ``;
       outputUsers();

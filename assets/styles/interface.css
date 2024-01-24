@@ -165,6 +165,10 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+
+input {
+  outline: none;
+}
 a {
   text-decoration: none;
 }

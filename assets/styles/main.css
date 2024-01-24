@@ -65,6 +65,8 @@
   transition: 1s ease;
 }
 
+
+
 .rotate {
     transform: rotate(180deg);
     
@@ -123,3 +125,32 @@
 .user__email {
     color: var(--Blue);
 }
+
+.sort-list {
+  width: 141px;
+  font-family: 'Inter h3', sans-serif;
+  color: var(--Lavender-400);
+  background: var(--Lavender-100);
+  border-radius: 20px;
+  border: 2px solid var(--Lavender);
+  margin-top: 8px;
+  padding: 0;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  
+
+}
+
+.sort-list-hide {
+  display: none;
+}
+
+.sort-item {
+  cursor: pointer;
+}
+
+
