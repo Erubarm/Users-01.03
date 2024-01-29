@@ -55,7 +55,7 @@ const Actions = async () => {
     );
     filters.forEach((user) => {
       itemsList.innerHTML += `
-            <li>
+            <li class="li-item">
                 <div class="user__avatar"></div>
                 <div class="user__description">
                   <h2 class="user__name"><a href="./userProfile.html?userId=${user.userId}">${user.name}</a></h2>
@@ -93,7 +93,7 @@ const Actions = async () => {
   const outputUsers = () => {
     filteredUsers.forEach((user) => {
       itemsList.innerHTML += `
-            <li>
+            <li class='li-item'>
                 <div class="user__avatar"></div>
                 <div class="user__description">
                   <h2 class="user__name"><a href="./userProfile.html?userId=${user.userId}">${user.name}</a></h2>
@@ -120,5 +120,89 @@ const Actions = async () => {
       outputUsers();
     }
   });
+
+
+  const liItem = document.querySelectorAll('.li-item');
+
+  console.log(liItem);
+  liItem.forEach( (liItem) => {
+    liItem.onmousedown = (event) => {
+  
+      // liItem.style.background = '#e6e7f5';
+      // liItem.style.width = '399px';
+      // liItem.style.height = '436px';
+    
+      let shiftX = event.clientX - liItem.getBoundingClientRect().left;
+      let shiftY = event.clientY - liItem.getBoundingClientRect().top;
+    
+      liItem.style.position = 'absolute';
+      liItem.style.zIndex = 1000;
+      document.body.append(liItem);
+      
+      moveAt(event.pageX, event.pageY);
+    
+      function moveAt(pageX, pageY) {
+        liItem.style.left = pageX - shiftX + 'px';
+        liItem.style.top = pageY - shiftY + 'px';
+      };
+    
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      };
+    
+      document.addEventListener('mousemove', onMouseMove);
+    
+      liItem.onmouseup = () => {
+        document.removeEventListener('mousemove', onMouseMove);
+        liItem.onmouseup = null
+      };
+      
+    };
+    
+    liItem.ondragstart = () => {
+      return false;
+    };
+  })
+  // liItem.onmousedown = (event) => {
+  
+  //   console.log('Я в работе!')
+  
+  //   let shiftX = event.clientX - liItem.getBoundingClientRect().left;
+  //   let shiftY = event.clientY - liItem.getBoundingClientRect().top;
+  
+  //   liItem.style.position = 'absolute';
+  //   liItem.style.zIndex = 1000;
+  //   document.body.append(liItem);
+    
+  //   moveAt(event.pageX, event.pageY);
+  
+  //   function moveAt(pageX, pageY) {
+  //     liItem.style.left = pageX - shiftX + 'px';
+  //     liItem.style.top = pageY - shiftY + 'px';
+  //   };
+  
+  //   function onMouseMove(event) {
+  //     moveAt(event.pageX, event.pageY);
+  //   };
+  
+  //   document.addEventListener('mousemove', onMouseMove);
+  
+  //   liItem.onmouseup = () => {
+  //     document.removeEventListener('mousemove', onMouseMove);
+  //     liItem.onmouseup = null
+  //   };
+    
+  // };
+  
+  // liItem.ondragstart = () => {
+  //   return false;
+  // };
+
+
+
+
+
 };
 Actions();
+
+
