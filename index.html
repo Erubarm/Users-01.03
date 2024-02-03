@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="icon" href="./assets/icons/favicon.png">
-    <link rel="stylesheet" href="./assets/styles/index.css" />
+    <link rel="stylesheet" href="./assets/styles/index.css"/>
     <title>usersList</title>
-  </head>
-  <body>
-    <div class="preloader">
-      <div class="load__anim"></div>
-    </div>
+</head>
+<body>
+<div class="preloader">
+    <div class="load__anim"></div>
+</div>
 
-    <div class="wrapper">
-      <div class="container">
+<div class="wrapper">
+    <div class="container">
         <h1 class="main-title">Users</h1>
         <div class="search-filter">
-          <div class="search">
-            <input type="text" class="search__input" id="username" placeholder="Search by name"/>
-            <button class="search__button" id="userFind">
-              <img src="./assets/icons/search.svg" alt="search" />
-            </button>
-          </div>
-          <div class="popover">
-          <button class="filtered">
-            <span class="filtered__title">Sort</span>
-            <img
-              src="./assets/icons/ic-dropdown.svg"
-              alt="filter"
-              class="filtered__img"
-            />
-          </button>
-          <ul class="sort-list-hide sort-list" id="sort-list">
-            <li class="sort-item" id="sortAtoZ">Sort for A-Z</li>
-          </ul>
-        </div>
+            <div class="search">
+                <input type="text" class="search__input" id="username" placeholder="Search by name"/>
+                <button class="search__button" id="userFind">
+                    <img src="./assets/icons/search.svg" alt="search"/>
+                </button>
+            </div>
+            <div class="popover">
+                <button class="filtered">
+                    <span class="filtered__title">Sort</span>
+                    <img
+                            src="./assets/icons/ic-dropdown.svg"
+                            alt="filter"
+                            class="filtered__img"
+                    />
+                </button>
+                <ul class="sort-list-hide sort-list" id="sort-list">
+                    <li class="sort-item" id="sortAtoZ">Sort for A-Z</li>
+                </ul>
+            </div>
         </div>
         <ul class="items-list"></ul>
-      </div>
+        <div class="buttons-line">
+            <div class="buttons-page">
+
+            </div>
+        </div>
     </div>
 
-    <script src="./assets/js/script.js"></script>
-  </body>
+</div>
+
+<script src="./assets/js/script.js"></script>
+</body>
 </html>

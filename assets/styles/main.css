@@ -153,4 +153,9 @@
   cursor: pointer;
 }
 
+.buttons-page a {
+    font-family: 'Inter p-big', sans-serif;
+    color: var(--Black);
+}
+
 
