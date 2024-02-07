@@ -3,11 +3,15 @@ const buttonFilter = document.querySelector(".filtered");
 const username = document.getElementById("username");
 const userFind = document.getElementById("userFind");
 const pageUrl = window.location.search;
-const numberPage = pageUrl.split('=')[1];
-console.log(numberPage);
+let numberPage = Number(pageUrl.split('=')[1]);
+
 const sortAtoZ = document.getElementById("sortAtoZ");
-const buttonsPage = document.querySelector('.buttons-page');
+const sortLength = document.getElementById('sortLength');
+const buttonsPage = document.querySelector('.buttons-page__page');
+const buttonsPageLeft = document.getElementById('button-page__arrow__left');
+const buttonsPageRight = document.getElementById('button-page__arrow__right');
 const sortList = document.getElementById("sort-list");
+
 
 buttonFilter.addEventListener("click", () => {
     if (!filterImg.classList.contains("rotate")) {
@@ -46,7 +50,7 @@ const Actions = async () => {
             userId: user.id,
         };
     });
-    console.log(filteredUsers)
+    
     // const
 
 
@@ -91,20 +95,56 @@ const Actions = async () => {
             }
         }
     });
+    // function pageClick(page) {
+    //     history.pushState(null, null,`./index.html?page=${page}`)
+    // }
+
+    const reloadListUsers= () => {
+        itemsList.innerHTML = '';
+        outputUsers();
+    }
     const pagination = () => {
         let page = 1;
         for (let i = 1; i <= filteredUsers.length; i++) {
             if (i % 2 != 0) {
                 buttonsPage.innerHTML += `
-            <a href='./index.html?page=${page}'>${page}</a>
+            <a onclick="history.pushState(null, null, \`./index.html?page=${page}\`);" class="number-page">${page}</a>
           `;
+
             } else {
                 page++;
             }
         }
     }
+    
     pagination();
+
+    buttonsPageLeft.addEventListener('click', () => {
+        if (numberPage === 1) {
+            buttonsPageLeft.setAttribute('disabled');
+        } else {
+            buttonsPageLeft.removeAttribute('disabled');
+            history.pushState(null, null, `./index.html?page=${numberPage -= 1}`);
+            itemsList.innerHTML = '';
+            outputUsers();
+        }
+
+    })
+    buttonsPageRight.addEventListener('click', () => {
+        if (numberPage == buttonsPage.querySelectorAll('a').length) {
+            buttonsPageRight.setAttribute('disabled');
+        } else {
+            buttonsPageRight.removeAttribute('disabled')
+            history.pushState(null, null, `./index.html?page=${numberPage += 1}`);
+            itemsList.innerHTML = '';
+            outputUsers();
+        }
+    })
+
+
+
     console.log(filteredUsers)
+
 
     // buttonsPage.addEventListener('click', (btn) => {
     //     btn.classList.add('active')
@@ -125,31 +165,51 @@ const Actions = async () => {
                 </li>
                 `;
             }
-
-
-
-
         });
     };
 
     outputUsers();
 
     sortAtoZ.addEventListener("click", () => {
-        if (sortAtoZ.innerText === "Sort for A-Z") {
-            sortAtoZ.innerText = "Sort for Z-A";
+        if (sortAtoZ.innerText === "Sort by A-Z") {
+            sortAtoZ.innerText = "Sort by Z-A";
             filteredUsers.sort((a, b) => a.name.localeCompare(b.name));
             itemsList.innerHTML = ``;
             outputUsers();
         } else {
-            sortAtoZ.innerText = "Sort for A-Z";
+            sortAtoZ.innerText = "Sort by A-Z";
             filteredUsers.reverse();
             itemsList.innerHTML = ``;
             outputUsers();
         }
     });
 
+    sortLength.addEventListener('click', () => {
+        if (sortLength.innerText === 'Sort by length ↓') {
+            sortLength.innerText = 'Sort by length ↑';
+            filteredUsers.sort( (a, b) => b.name.length - a.name.length);
+            itemsList.innerHTML = '';
+            console.log(filteredUsers)
+            outputUsers();
+        } else {
+            sortLength.innerText = 'Sort by length ↓';
+            filteredUsers.reverse();
+            itemsList.innerHTML = '';
+            console.log(filteredUsers);
+            outputUsers();
+        }
+    })
+
+
+
 
 };
 Actions();
+
+
+
+
+
+
 
 

@@ -153,9 +153,39 @@
   cursor: pointer;
 }
 
+
+
 .buttons-page a {
     font-family: 'Inter p-big', sans-serif;
     color: var(--Black);
+    padding: 12px 19px;
+}
+
+.buttons-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 42px;
+    gap: 23px;
+}
+
+.buttons-page button {
+    background: inherit;
+    border: none;
+
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+}
+
+.buttons-page__page a {
+    cursor: pointer;
+}
+
+.focus-page {
+    background: var(--Lavender-200);
+    border-radius: 8px;
 }
 
 
